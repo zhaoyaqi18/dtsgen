@@ -39,6 +39,10 @@ const FAQS = [
     a: 'Paste it into the Timestamp Decoder above. It works with full codes like <t:1764547200:F>, default codes like <t:1764547200>, and bare Unix numbers — even a whole announcement message at once. Every timestamp is shown as your local time plus a live relative reading like "in 3 days".',
   },
   {
+    q: 'Can I use timestamps in embeds or with bots?',
+    a: 'Yes. Timestamps render everywhere Discord shows text — embeds, bot messages, threads, forum posts, and channel descriptions. Bots can include them in embed descriptions and fields without any special handling.',
+  },
+  {
     q: 'What is a Unix timestamp?',
     a: 'It is the number of seconds elapsed since January 1, 1970 (UTC). It is timezone-independent, which is exactly why Discord uses it: one number describes one absolute moment for everyone on Earth.',
   },
@@ -46,7 +50,7 @@ const FAQS = [
 
 export default function SeoContent() {
   return (
-    <div className="mx-auto w-full max-w-4xl px-4 pb-24">
+    <div className="mx-auto w-full max-w-4xl min-[1600px]:max-w-[1180px] px-4 pb-24">
       {/* How to use */}
       <section className="mt-20">
         <h2 className="font-display text-2xl font-bold text-[#f2f3f5] sm:text-3xl">
@@ -128,8 +132,8 @@ export default function SeoContent() {
 
       {/* FAQ */}
       <section className="mt-16">
-        <h2 className="font-display text-2xl font-bold text-[#f2f3f5] sm:text-3xl">Frequently asked questions</h2>
-        <div className="mt-6 space-y-3">
+        <h2 className="font-display text-center text-2xl font-bold text-[#f2f3f5] sm:text-3xl">Frequently asked questions</h2>
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
           {FAQS.map((f) => (
             <details
               key={f.q}
@@ -145,7 +149,65 @@ export default function SeoContent() {
         </div>
       </section>
 
+      {/* more free tools — site matrix */}
+      <section className="mt-16">
+        <h2 className="font-display text-center text-2xl font-bold text-[#f2f3f5] sm:text-3xl">More free tools you might need</h2>
+        <p className="mt-2 text-center text-sm text-[#949ba4]">Same promise — free, no sign-up, works in your browser.</p>
+        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          {[
+            {
+              name: 'HideChar',
+              color: '#57F287',
+              href: 'https://hidechar.com/?utm_source=dtsgen&utm_medium=matrix&utm_campaign=site-banner',
+              desc: 'Blank Discord nicknames & invisible text — secret messages that survive copy & paste.',
+              formats: 'Discord · PUBG · Free Fire · IG bios',
+              badge: 'FREE',
+            },
+            {
+              name: 'PalTool',
+              color: '#5865F2',
+              href: 'https://paltool.cc/?utm_source=dtsgen&utm_medium=matrix&utm_campaign=site-banner',
+              desc: 'Palworld breeding calculator — find the shortest breeding path for any Pal.',
+              formats: '299 Pals · 44,851 recipes',
+              badge: 'FREE',
+            },
+            {
+              name: 'BakingTab',
+              color: '#F59E0B',
+              href: 'https://bakingtab.com/?utm_source=dtsgen&utm_medium=matrix&utm_campaign=site-banner',
+              desc: 'Convert cups to grams & scale recipes — precise baking conversions in one place.',
+              formats: 'Cups · grams · oven temperatures',
+              badge: 'FREE',
+            },
+          ].map((t) => (
+            <a
+              key={t.name}
+              href={t.href}
+              target="_blank"
+              rel="sponsored noopener"
+              className="card-shine group relative rounded-2xl border border-white/8 bg-white/[0.03] p-5 transition-all duration-200 hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--acc)_45%,transparent)] hover:shadow-[0_12px_40px_color-mix(in_srgb,var(--acc)_22%,transparent)]"
+              style={{ '--acc': t.color } as React.CSSProperties}
+            >
+              <div className="flex items-center gap-2">
+                <span className="font-display text-lg font-bold" style={{ color: t.color }}>{t.name}</span>
+                <span className="rounded-full border border-[#57F287]/50 bg-[#57F287]/10 px-2 py-0.5 text-[10px] font-bold tracking-wider text-[#57F287]">{t.badge}</span>
+              </div>
+              <p className="mt-2 text-[13px] leading-relaxed text-[#a5acb4]">{t.desc}</p>
+              <p className="mt-1.5 font-mono text-[11px] tracking-wider text-[#6d6f78]">{t.formats}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
       <footer className="mt-16 border-t border-white/8 pt-6 text-center text-xs text-[#6d6f78]">
+        <p className="mb-1.5">
+          more free tools:{' '}
+          <a href="https://hidechar.com/?utm_source=dtsgen&utm_medium=matrix&utm_campaign=footer" target="_blank" rel="sponsored noopener" className="text-[#57F287] hover:underline">HideChar</a>
+          {' · '}
+          <a href="https://paltool.cc/?utm_source=dtsgen&utm_medium=matrix&utm_campaign=footer" target="_blank" rel="sponsored noopener" className="text-[#5865F2] hover:underline">PalTool</a>
+          {' · '}
+          <a href="https://bakingtab.com/?utm_source=dtsgen&utm_medium=matrix&utm_campaign=footer" target="_blank" rel="sponsored noopener" className="text-[#F59E0B] hover:underline">BakingTab</a>
+        </p>
         DTS Generator — Free Discord Timestamp Tool. Works entirely in your browser. No sign-up, no uploads, no tracking.
         <br className="sm:hidden" />
         {' '}<a href="https://tally.so/r/PdW5lx" target="_blank" rel="noopener" className="text-[#5865F2] hover:underline">Feedback</a>

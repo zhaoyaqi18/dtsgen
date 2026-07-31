@@ -41,7 +41,7 @@ export default function TimestampDecoder() {
   }, [found.length])
 
   return (
-    <section id="decoder" className="anim-fade-up relative mx-auto mt-8 w-full max-w-4xl px-4 [animation-delay:380ms]">
+    <section id="decoder" className="anim-fade-up relative mx-auto mt-8 w-full max-w-4xl min-[1600px]:max-w-[1180px] px-4 [animation-delay:380ms]">
       <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#1e1f22]/90 p-5 shadow-[0_20px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:p-8">
         {/* header */}
         <div className="flex items-center gap-3">

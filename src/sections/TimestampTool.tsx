@@ -287,7 +287,7 @@ export default function TimestampTool() {
   const previewMsg = unix !== null ? previewTimestamp(unix, msgStyle, undefined, nowMs) : ''
 
   return (
-    <section id="generator" className="anim-fade-up relative mx-auto w-full max-w-4xl px-4 [animation-delay:320ms]">
+    <section id="generator" className="anim-fade-up relative mx-auto w-full max-w-4xl min-[1600px]:max-w-[1180px] px-4 [animation-delay:320ms]">
       <div
         ref={cardRef}
         onMouseMove={onCardMouseMove}

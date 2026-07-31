@@ -71,7 +71,7 @@ export default function Home() {
       </div>
 
       {/* header */}
-      <header className="anim-fade-up relative mx-auto flex w-full max-w-4xl items-center justify-between px-4 pt-6">
+      <header className="anim-fade-up relative mx-auto flex w-full max-w-4xl min-[1600px]:max-w-[1180px] items-center justify-between px-4 pt-6">
         <div className="flex items-center gap-2.5">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#5865F2] to-[#8b95f8] shadow-lg shadow-[#5865F2]/40 ring-1 ring-white/20">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -102,12 +102,12 @@ export default function Home() {
       </header>
 
       {/* hero */}
-      <section className="relative mx-auto w-full max-w-4xl px-4 pb-12 pt-16 text-center sm:pt-24">
+      <section className="relative mx-auto w-full max-w-4xl min-[1600px]:max-w-[1180px] px-4 pb-12 pt-16 text-center sm:pt-24">
         <div className="anim-fade-up mx-auto inline-flex items-center gap-2 rounded-full border border-[#5865F2]/30 bg-[#5865F2]/10 px-3.5 py-1.5 text-xs font-medium text-[#949cf7] [animation-delay:80ms]">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#57F287]" />
           Free · No sign-up · 100% in your browser
         </div>
-        <h1 className="anim-fade-up font-display rgb-title mx-auto mt-7 max-w-4xl cursor-default text-[34px] font-bold leading-[1.1] tracking-tight text-[#f2f3f5] [animation-delay:160ms] sm:text-6xl md:text-7xl">
+        <h1 className="anim-fade-up font-display rgb-title mx-auto mt-7 max-w-4xl min-[1600px]:max-w-[1180px] cursor-default text-[34px] font-bold leading-[1.1] tracking-tight text-[#f2f3f5] [animation-delay:160ms] sm:text-6xl md:text-7xl">
           Discord timestamps,
           <br />
           <span className="gradient-text-animated">in everyone&rsquo;s timezone</span>
