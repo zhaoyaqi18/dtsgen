@@ -52,11 +52,11 @@ export default function SeoContent() {
   return (
     <div className="mx-auto w-full max-w-4xl min-[1600px]:max-w-[1180px] px-4 pb-24">
       {/* How to use */}
-      <section className="mt-20">
-        <h2 className="font-display text-2xl font-bold text-[#f2f3f5] sm:text-3xl">
+      <section className="mt-8">
+        <h2 className="font-display text-xl font-bold text-[#f2f3f5] sm:text-3xl">
           How to create a Discord timestamp
         </h2>
-        <div className="relative mt-8 grid gap-4 sm:grid-cols-3">
+        <div className="relative mt-4 grid grid-cols-1 gap-2.5 sm:mt-8 sm:grid-cols-3 sm:gap-4">
           {/* gradient connector line (desktop) */}
           <div
             aria-hidden="true"
@@ -69,27 +69,29 @@ export default function SeoContent() {
           ].map((s, i) => (
             <div
               key={s.n}
-              className="card-shine relative rounded-2xl border border-white/8 bg-white/[0.03] p-5 transition-all duration-200 hover:-translate-y-1 hover:border-[#5865F2]/40 hover:shadow-[0_12px_40px_rgba(88,101,242,0.2)]"
+              className="card-shine relative rounded-2xl border border-white/8 bg-white/[0.03] p-3 transition-all duration-200 hover:-translate-y-1 hover:border-[#5865F2]/40 hover:shadow-[0_12px_40px_rgba(88,101,242,0.2)] sm:p-5"
             >
-              <div
-                className="relative flex h-9 w-9 items-center justify-center rounded-xl text-sm font-bold text-white ring-4 ring-[#111214]"
-                style={{
-                  background: `linear-gradient(135deg, ${STEP_ACCENTS[i]}, ${STEP_ACCENTS[i]}99)`,
-                  boxShadow: `0 6px 18px ${STEP_ACCENTS[i]}55`,
-                }}
-              >
-                {s.n}
+              <div className="flex items-center gap-2.5">
+                <div
+                  className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white ring-4 ring-[#111214]"
+                  style={{
+                    background: `linear-gradient(135deg, ${STEP_ACCENTS[i]}, ${STEP_ACCENTS[i]}99)`,
+                    boxShadow: `0 6px 18px ${STEP_ACCENTS[i]}55`,
+                  }}
+                >
+                  {s.n}
+                </div>
+                <h3 className="text-[13px] font-semibold text-[#f2f3f5] sm:text-[15px]">{s.t}</h3>
               </div>
-              <h3 className="mt-3.5 text-[15px] font-semibold text-[#f2f3f5]">{s.t}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-[#949ba4]">{s.d}</p>
+              <p className="mt-1.5 text-xs leading-relaxed text-[#949ba4] sm:text-sm">{s.d}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Format table */}
-      <section className="mt-16">
-        <h2 className="font-display text-2xl font-bold text-[#f2f3f5] sm:text-3xl">All 7 Discord timestamp formats</h2>
+      <section className="mt-8">
+        <h2 className="font-display text-xl font-bold text-[#f2f3f5] sm:text-3xl">All 7 Discord timestamp formats</h2>
         <p className="mt-2 text-sm text-[#949ba4]">
           The letter at the end of the code controls how Discord displays the time. Omitting it defaults to <code className="rounded bg-white/10 px-1 font-mono text-xs">f</code>.
         </p>
@@ -97,16 +99,16 @@ export default function SeoContent() {
           <table className="w-full text-left text-sm">
             <thead>
               <tr className="bg-white/[0.04] text-xs uppercase tracking-wider text-[#949ba4]">
-                <th className="px-4 py-3 font-semibold">Code</th>
-                <th className="px-4 py-3 font-semibold">Format</th>
-                <th className="px-4 py-3 font-semibold">Syntax</th>
-                <th className="px-4 py-3 font-semibold">Example output</th>
+                <th className="px-3 py-2.5 font-semibold sm:px-4 sm:py-3">Code</th>
+                <th className="hidden px-3 py-2.5 font-semibold sm:table-cell sm:px-4 sm:py-3">Format</th>
+                <th className="hidden px-3 py-2.5 font-semibold md:table-cell sm:px-4 sm:py-3">Syntax</th>
+                <th className="px-3 py-2.5 font-semibold sm:px-4 sm:py-3">Example output</th>
               </tr>
             </thead>
             <tbody>
               {FORMAT_ROWS.map((r, i) => (
                 <tr key={r.code} className={`transition-colors hover:bg-white/[0.06] ${i % 2 === 0 ? 'bg-white/[0.015]' : 'bg-white/[0.04]'}`}>
-                  <td className="px-4 py-3">
+                  <td className="px-3 py-2 sm:px-4 sm:py-3">
                     <code
                       className="rounded px-1.5 py-0.5 font-mono text-xs font-bold"
                       style={{
@@ -118,11 +120,11 @@ export default function SeoContent() {
                       {r.code}
                     </code>
                   </td>
-                  <td className="px-4 py-3 text-[#dbdee1]">{r.name}</td>
-                  <td className="px-4 py-3">
+                  <td className="hidden px-4 py-3 text-[#dbdee1] sm:table-cell">{r.name}</td>
+                  <td className="hidden px-4 py-3 md:table-cell">
                     <code className="font-mono text-xs text-[#949ba4]">{`<t:UNIX:${r.code}>`}</code>
                   </td>
-                  <td className="px-4 py-3 text-[#dbdee1]">{r.example}</td>
+                  <td className="px-3 py-2 text-[#dbdee1] sm:px-4 sm:py-3">{r.example}</td>
                 </tr>
               ))}
             </tbody>
@@ -131,28 +133,28 @@ export default function SeoContent() {
       </section>
 
       {/* FAQ */}
-      <section className="mt-16">
-        <h2 className="font-display text-center text-2xl font-bold text-[#f2f3f5] sm:text-3xl">Frequently asked questions</h2>
-        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+      <section className="mt-8">
+        <h2 className="font-display text-xl font-bold text-[#f2f3f5] sm:text-3xl">Frequently asked questions</h2>
+        <div className="mt-4 grid grid-cols-2 gap-2 sm:mt-6 sm:gap-3">
           {FAQS.map((f) => (
             <details
               key={f.q}
-              className="group rounded-2xl border border-white/8 bg-white/[0.03] px-5 py-4 open:border-[#5865F2]/40 open:bg-[#5865F2]/[0.06]"
+              className="group rounded-2xl border border-white/8 bg-white/[0.03] px-3 py-3 open:border-[#5865F2]/40 open:bg-[#5865F2]/[0.06] sm:px-5 sm:py-4"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between text-[15px] font-semibold text-[#dbdee1] [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between text-[13px] font-semibold leading-snug text-[#dbdee1] [&::-webkit-details-marker]:hidden sm:text-[15px] sm:leading-normal">
                 {f.q}
                 <span className="ml-4 shrink-0 text-[#5865F2] transition-transform duration-200 group-open:rotate-45">+</span>
               </summary>
-              <p className="mt-3 text-sm leading-relaxed text-[#949ba4]">{f.a}</p>
+              <p className="mt-2 text-xs leading-relaxed text-[#949ba4] sm:mt-3 sm:text-sm">{f.a}</p>
             </details>
           ))}
         </div>
       </section>
 
       {/* more free tools — site matrix */}
-      <section className="mt-16">
-        <h2 className="font-display text-center text-2xl font-bold text-[#f2f3f5] sm:text-3xl">More free tools you might need</h2>
-        <p className="mt-2 text-center text-sm text-[#949ba4]">Same promise — free, no sign-up, works in your browser.</p>
+      <section className="mt-8">
+        <h2 className="font-display text-xl font-bold text-[#f2f3f5] sm:text-3xl">More free tools you might need</h2>
+        <p className="mt-1.5 text-sm text-[#949ba4]">Same promise — free, no sign-up, works in your browser.</p>
         <div className="mt-6 grid gap-3 sm:grid-cols-3">
           {[
             {
@@ -185,7 +187,7 @@ export default function SeoContent() {
               href={t.href}
               target="_blank"
               rel="sponsored noopener"
-              className="card-shine group relative rounded-2xl border border-white/8 bg-white/[0.03] p-5 transition-all duration-200 hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--acc)_45%,transparent)] hover:shadow-[0_12px_40px_color-mix(in_srgb,var(--acc)_22%,transparent)]"
+              className="card-shine group relative rounded-2xl border border-white/8 bg-white/[0.03] p-4 transition-all duration-200 hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--acc)_45%,transparent)] hover:shadow-[0_12px_40px_color-mix(in_srgb,var(--acc)_22%,transparent)] sm:p-5"
               style={{ '--acc': t.color } as React.CSSProperties}
             >
               <div className="flex items-center gap-2">

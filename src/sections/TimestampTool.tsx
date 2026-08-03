@@ -114,19 +114,19 @@ function FormatCard({
     <button
       onClick={onCopy}
       style={{ '--acc': accent } as CSSProperties}
-      className="card-shine group relative flex flex-col gap-2.5 rounded-2xl border border-white/8 bg-white/[0.03] p-4 text-left transition-all duration-200 hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--acc)_65%,transparent)] hover:bg-[color-mix(in_srgb,var(--acc)_8%,transparent)] hover:shadow-[0_12px_40px_color-mix(in_srgb,var(--acc)_30%,transparent)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--acc)] active:scale-[0.97]"
+      className="card-shine group relative flex flex-col gap-1.5 rounded-2xl border border-white/8 bg-white/[0.03] p-2.5 text-left sm:gap-2.5 sm:p-4 transition-all duration-200 hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--acc)_65%,transparent)] hover:bg-[color-mix(in_srgb,var(--acc)_8%,transparent)] hover:shadow-[0_12px_40px_color-mix(in_srgb,var(--acc)_30%,transparent)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--acc)] active:scale-[0.97]"
     >
       <div className="flex w-full items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[color-mix(in_srgb,var(--acc)_16%,transparent)] text-[var(--acc)] ring-1 ring-[color-mix(in_srgb,var(--acc)_45%,transparent)] transition-all duration-200 group-hover:bg-[var(--acc)] group-hover:text-[#111214] group-hover:shadow-[0_0_18px_color-mix(in_srgb,var(--acc)_60%,transparent)]">
-            <FormatIcon kind={syntaxOverride !== undefined ? 'default' : style} size={18} />
+          <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--acc)_16%,transparent)] text-[var(--acc)] ring-1 ring-[color-mix(in_srgb,var(--acc)_45%,transparent)] transition-all duration-200 group-hover:bg-[var(--acc)] group-hover:text-[#111214] group-hover:shadow-[0_0_18px_color-mix(in_srgb,var(--acc)_60%,transparent)]">
+            <FormatIcon kind={syntaxOverride !== undefined ? 'default' : style} size={14} />
           </span>
-          <span className="text-[11px] font-semibold uppercase tracking-widest text-[color-mix(in_srgb,var(--acc)_80%,white)]">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-[color-mix(in_srgb,var(--acc)_80%,white)]">
             {name}
           </span>
         </div>
         <span
-          className={`flex h-6 w-6 items-center justify-center rounded-md transition-colors ${
+          className={`flex h-5 w-5 items-center justify-center rounded-md transition-colors ${
             state === 'ok'
               ? 'bg-[#57F287]/20 text-[#57F287]'
               : state === 'fail'
@@ -143,7 +143,7 @@ function FormatCard({
           )}
         </span>
       </div>
-      <div className="min-h-[24px] text-[15px] font-medium text-[#dbdee1]">
+      <div className="min-h-[18px] truncate text-[13px] font-medium text-[#dbdee1]">
         {state === 'ok' ? (
           <span className="text-[#57F287]">Copied!</span>
         ) : state === 'fail' ? (
@@ -152,7 +152,7 @@ function FormatCard({
           preview
         )}
       </div>
-      <code className="w-full truncate rounded-md bg-black/40 px-2 py-1 font-mono text-[12px] text-[#949ba4] transition-colors group-hover:text-[#c9cdfb]">
+      <code className="w-full truncate rounded-md bg-black/40 px-2 py-0.5 font-mono text-[11px] text-[#949ba4] transition-colors group-hover:text-[#c9cdfb]">
         {syntax}
       </code>
     </button>
@@ -297,7 +297,7 @@ export default function TimestampTool() {
         <div className="spotlight pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
       <div className="relative">
         {/* inputs */}
-        <div className="grid gap-4 sm:grid-cols-[1fr_1fr_1.4fr]">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-[1fr_1fr_1.4fr] sm:gap-4">
           <label className="flex flex-col gap-1.5">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#949ba4]">Date</span>
             <input
@@ -316,7 +316,7 @@ export default function TimestampTool() {
               className="h-11 rounded-xl border border-white/10 bg-[#111214] px-3 text-[15px] text-[#dbdee1] outline-none transition-colors focus:border-[#5865F2] [color-scheme:dark]"
             />
           </label>
-          <div className="flex flex-col gap-1.5" ref={zoneBoxRef}>
+          <div className="col-span-2 flex flex-col gap-1.5 sm:col-span-1" ref={zoneBoxRef}>
             <span className="text-xs font-semibold uppercase tracking-wider text-[#949ba4]">
               Timezone <span className="normal-case text-[#5865F2]">({zoneOffsetLabel(timeZone, nowMs)})</span>
             </span>
@@ -371,22 +371,24 @@ export default function TimestampTool() {
         </div>
 
         {/* quick presets */}
-        <div className="mt-4 flex flex-wrap items-center gap-2">
-          <span className="text-xs text-[#6d6f78]">Quick set:</span>
-          {presets.map((q) => (
-            <button
-              key={q.label}
-              onClick={() => quickSetUnix(q.unix)}
-              className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-[#b5bac1] transition-colors hover:border-[#5865F2]/50 hover:bg-[#5865F2]/15 hover:text-white"
-            >
-              {q.label}
-            </button>
-          ))}
-          {unix !== null && (
-            <span className="ml-auto rounded-md bg-black/40 px-2 py-1 font-mono text-xs text-[#6d6f78]">
-              unix: {unix}
-            </span>
-          )}
+        <div className="mt-4">
+          <span className="text-[11px] font-medium uppercase tracking-wider text-[#6d6f78]">Quick set:</span>
+          <div className="mt-1.5 flex items-center gap-1.5">
+            {presets.map((q) => (
+              <button
+                key={q.label}
+                onClick={() => quickSetUnix(q.unix)}
+                className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[11px] font-medium text-[#b5bac1] transition-colors hover:border-[#5865F2]/50 hover:bg-[#5865F2]/15 hover:text-white"
+              >
+                {q.label}
+              </button>
+            ))}
+            {unix !== null && (
+              <span className="ml-auto shrink-0 rounded-md bg-black/40 px-2 py-1 font-mono text-[11px] text-[#6d6f78]">
+                unix: {unix}
+              </span>
+            )}
+          </div>
         </div>
 
         {unix === null && (
@@ -403,7 +405,7 @@ export default function TimestampTool() {
 
         {/* format grid */}
         {unix !== null && (
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-5 grid grid-cols-2 gap-2.5 sm:mt-6 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3">
             {STYLES.map((s) => (
               <FormatCard key={s.code} style={s.code} name={s.name} unix={unix} nowMs={nowMs} />
             ))}
@@ -414,7 +416,7 @@ export default function TimestampTool() {
               nowMs={nowMs}
               syntaxOverride={`<t:${unix}>`}
             />
-            <div className="flex flex-col justify-center gap-1 rounded-2xl border border-dashed border-white/10 p-4 text-center">
+            <div className="col-span-2 flex flex-col justify-center gap-1 rounded-2xl border border-dashed border-white/10 p-4 text-center lg:col-span-1">
               <p className="text-sm font-medium text-[#b5bac1]">Click any card to copy</p>
               <p className="text-xs text-[#6d6f78]">Paste directly into Discord — it renders automatically</p>
             </div>
@@ -444,9 +446,9 @@ export default function TimestampTool() {
                 value={msgText}
                 onChange={(e) => setMsgText(e.target.value)}
                 placeholder={"Type your sentence — then click “Insert time at cursor” to drop the timestamp exactly where you want it: start, middle or end…"}
-                rows={2}
+                rows={4}
                 maxLength={300}
-                className="mt-2 w-full resize-y rounded-xl border border-white/10 bg-[#111214] px-3 py-2.5 text-[14px] text-[#dbdee1] outline-none transition-colors placeholder:text-[#6d6f78] focus:border-[#5865F2]"
+                className="mt-2 w-full resize-y rounded-xl border border-white/10 bg-[#111214] px-3 py-2.5 text-xs text-[#dbdee1] outline-none transition-colors placeholder:text-[#6d6f78] focus:border-[#5865F2] sm:text-[14px]"
               />
               <p className="mt-1.5 text-[11px] leading-relaxed text-[#6d6f78]">
                 The timestamp lands wherever the{' '}

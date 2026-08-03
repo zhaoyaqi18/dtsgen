@@ -43,7 +43,7 @@ function LiveUnixBadge() {
     return () => window.clearInterval(id)
   }, [])
   return (
-    <div className="anim-fade-up mx-auto mt-9 inline-flex items-center gap-3.5 rounded-2xl border border-white/10 bg-white/[0.04] py-2 pl-2 pr-5 shadow-[0_0_30px_rgba(88,101,242,0.15)] backdrop-blur-md [animation-delay:260ms]">
+    <div className="anim-fade-up mx-auto mt-6 inline-flex items-center gap-3.5 rounded-2xl border border-white/10 bg-white/[0.04] py-2 pl-2 pr-5 shadow-[0_0_30px_rgba(88,101,242,0.15)] backdrop-blur-md [animation-delay:260ms]">
       <NeonRing />
       <div className="text-left">
         <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6d6f78]">
@@ -102,29 +102,29 @@ export default function Home() {
       </header>
 
       {/* hero */}
-      <section className="relative mx-auto w-full max-w-4xl min-[1600px]:max-w-[1180px] px-4 pb-12 pt-16 text-center sm:pt-24">
+      <section className="relative mx-auto w-full max-w-4xl min-[1600px]:max-w-[1180px] px-4 pb-10 pt-10 text-center sm:pt-24">
         <div className="anim-fade-up mx-auto inline-flex items-center gap-2 rounded-full border border-[#5865F2]/30 bg-[#5865F2]/10 px-3.5 py-1.5 text-xs font-medium text-[#949cf7] [animation-delay:80ms]">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#57F287]" />
           Free · No sign-up · 100% in your browser
         </div>
-        <h1 className="anim-fade-up font-display rgb-title mx-auto mt-7 max-w-4xl min-[1600px]:max-w-[1180px] cursor-default text-[34px] font-bold leading-[1.1] tracking-tight text-[#f2f3f5] [animation-delay:160ms] sm:text-6xl md:text-7xl">
+        <h1 className="anim-fade-up font-display rgb-title mx-auto mt-7 max-w-4xl min-[1600px]:max-w-[1180px] cursor-default text-[28px] font-bold leading-[1.1] tracking-tight text-[#f2f3f5] [animation-delay:160ms] sm:text-6xl md:text-7xl">
           Discord timestamps,
           <br />
           <span className="gradient-text-animated">in everyone&rsquo;s timezone</span>
         </h1>
-        <p className="anim-fade-up mx-auto mt-4 max-w-lg text-[13px] leading-relaxed text-[#949ba4] [animation-delay:220ms]">
+        <p className="anim-fade-up mx-auto mt-3 max-w-lg text-[11px] leading-relaxed text-[#949ba4] [animation-delay:220ms] sm:text-[13px]">
           Pick a time, copy one line of code — everyone sees it in their own timezone, live.
         </p>
         {/* signature feature intro + quick jumps */}
-        <div className="anim-fade-up mx-auto mt-5 max-w-lg [animation-delay:240ms]">
-          <p className="text-[12px] leading-relaxed text-[#949ba4]">
+        <div className="anim-fade-up mx-auto mt-4 max-w-lg [animation-delay:240ms]">
+          <p className="text-[11px] leading-relaxed text-[#949ba4]">
             <span className="mr-1.5 rounded bg-[#57F287]/15 px-1.5 py-px text-[10px] font-bold text-[#57F287]">NEW</span>
             Hide a live timestamp inside any sentence — friends decode the riddle here.
           </p>
-          <div className="mt-3.5 flex flex-wrap items-center justify-center gap-2.5">
+          <div className="mt-3.5 flex items-center justify-center gap-2 sm:gap-2.5">
             <a
               href="#composer"
-              className="inline-flex items-center gap-1.5 rounded-full bg-[#5865F2] px-5 py-2.5 text-xs font-semibold text-white shadow-lg shadow-[#5865F2]/40 transition-all hover:-translate-y-0.5 hover:bg-[#4752c4] hover:shadow-[#5865F2]/60 active:scale-95"
+              className="inline-flex items-center gap-1.5 rounded-full bg-[#5865F2] px-3 py-1.5 text-[11px] font-semibold text-white shadow-lg shadow-[#5865F2]/40 transition-all hover:-translate-y-0.5 hover:bg-[#4752c4] hover:shadow-[#5865F2]/60 active:scale-95 sm:px-5 sm:py-2.5 sm:text-xs"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 20h9" />
@@ -134,7 +134,7 @@ export default function Home() {
             </a>
             <a
               href="#decoder"
-              className="inline-flex items-center gap-1.5 rounded-full border border-[#57F287]/50 bg-[#57F287]/10 px-5 py-2.5 text-xs font-semibold text-[#57F287] transition-all hover:-translate-y-0.5 hover:bg-[#57F287] hover:text-[#111214] hover:shadow-[0_0_20px_rgba(87,242,135,0.4)] active:scale-95"
+              className="inline-flex items-center gap-1.5 rounded-full border border-[#57F287]/50 bg-[#57F287]/10 px-3 py-1.5 text-[11px] font-semibold text-[#57F287] transition-all hover:-translate-y-0.5 hover:bg-[#57F287] hover:text-[#111214] hover:shadow-[0_0_20px_rgba(87,242,135,0.4)] active:scale-95 sm:px-5 sm:py-2.5 sm:text-xs"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="11" cy="11" r="7" />
